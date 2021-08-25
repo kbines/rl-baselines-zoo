@@ -1,5 +1,9 @@
 PortfolioAllocation-v0:
   policy : 'MlpLnLstmPolicy'
+  normalize: true
+  n_envs: 2
+  n_timesteps : 20
+
 
 atari:
   policy: 'CnnPolicy'

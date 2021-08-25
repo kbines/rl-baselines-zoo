@@ -1,12 +1,11 @@
 python train.py^
- --algo a2c --env PortfolioAllocation-v0^
- --n-timesteps 20^
- --optimization-log-path ac2_50_500_sharpe/opt_log^
- --log-folder ac2_50_500_sharpe/log^
+ --algo a2c^
+ --env PortfolioAllocation-v0^
+ -tb tensorboard/ac2_50_500_lstm_sharpe^
+ --log-folder ac2_50_500_lstm_sharpe/log^
+ --n-timesteps 2517^
  --save-freq 10^
- --vec-env dummy^
  --n-trials 5^
- --optimize-hyperparameters^
- --study-name ac2_50_500_sharpe^
+ --optimize^
  --verbose 1^
  --env-kwargs sample_size:500
