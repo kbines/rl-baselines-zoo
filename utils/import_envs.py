@@ -12,3 +12,8 @@ try:
     import mocca_envs  # pytype: disable=import-error
 except ImportError:
     mocca_envs = None
+    
+try:
+    import PortfolioAllocationGym
+except ImportError:
+    PortfolioAllocationGym = None

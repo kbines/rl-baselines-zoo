@@ -191,9 +191,10 @@ def sample_a2c_params(trial):
     learning_rate = trial.suggest_loguniform('lr', 1e-5, 1)
     ent_coef = trial.suggest_loguniform('ent_coef', 0.00000001, 0.1)
     vf_coef = trial.suggest_uniform('vf_coef', 0, 1)
-    # normalize = trial.suggest_categorical('normalize', [True, False])
-    # TODO: take into account the normalization (also for the test env)
-
+    max_grad_norm = trial.suggest_categorical("max_grad_norm", [0.3, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 2, 5])
+    n_lstm=trial.suggest_categorical('n_lstm', [32,64,128,256,512])
+    
+    kwargs = dict
     return {
         'n_steps': n_steps,
         'gamma': gamma,
@@ -201,6 +202,9 @@ def sample_a2c_params(trial):
         'lr_schedule': lr_schedule,
         'ent_coef': ent_coef,
         'vf_coef': vf_coef
+        'policy_kwargs': dict(
+            n_lstm=n_lstm
+        )
     }
 
 def sample_acktr_params(trial):
