@@ -75,6 +75,10 @@ if __name__ == '__main__':
                         help='Overwrite hyperparameter (e.g. learning_rate:0.01 train_freq:10)')
     parser.add_argument('-uuid', '--uuid', action='store_true', default=False,
                         help='Ensure that the run has a unique ID')
+    parser.add_argument('--storage', type=str, default=None,
+                        help='DB Storage URL')
+    parser.add_argument('--study_name', type=str, default=None,
+                        help='Optuna study name')
     parser.add_argument('--env-kwargs', type=str, nargs='+', action=StoreDict,
                         help='Optional keyword argument to pass to the env constructor')
     args = parser.parse_args()
@@ -384,8 +388,9 @@ if __name__ == '__main__':
                                              n_timesteps=n_timesteps, hyperparams=hyperparams,
                                              n_jobs=args.n_jobs, seed=args.seed,
                                              sampler_method=args.sampler, pruner_method=args.pruner,
-                                             verbose=args.verbose)
+                                             verbose=args.verbose, study_name=args.study_name, storage=args.storage)
 
+        
         report_name = "report_{}_{}-trials-{}-{}-{}_{}.csv".format(env_id, args.n_trials, n_timesteps,
                                                                 args.sampler, args.pruner, int(time.time()))
 

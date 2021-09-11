@@ -5,7 +5,7 @@ python train.py^
  --log-folder ac2_50_500_lstm_sharpe/log^
  --n-timesteps 2517^
  --save-freq 10^
- --n-trials 5^
+ --n-trials 20^
  --optimize^
  --verbose 1^
  --env-kwargs sample_size:500 reward_function:"'sharpe'"

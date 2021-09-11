@@ -2,7 +2,7 @@ PortfolioAllocation-v0:
   policy : 'MlpLnLstmPolicy'
   normalize: true
   n_envs: 2
-  n_timesteps : 20
+  n_timesteps : 1
 
 
 atari:
